@@ -42,12 +42,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         Log.d("MovieAdapter", "onCreateViewholder");
-        //todo: inflate here?
+        // qq: inflate here?
+//        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
         // src: https://www.codegrepper.com/code-examples/java/view+binding+in+recyclerview+adapter+android+java
         ItemMovieBinding movieViewBinding = ItemMovieBinding.inflate(
                 LayoutInflater.from(context), parent, false);
-        //todo: view vs data binding
-//        View movieView = ItemMovieBinding.inflate(LayoutInflater.from(context), parent, false);
+        // qq: view vs data binding
 //        return new ViewHolder(movieView);
         return new ViewHolder(movieViewBinding);
     }
@@ -86,7 +86,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         public ViewHolder(@NonNull ItemMovieBinding binding)
         {
             //TODO: nice to have: ivPrimaryImage instead of ivPoster & backdrop (https://hackmd.io/@qoEusk2FR0SJB-Q7Rsv-CQ/ryS2Jppz-?type=view)
-//            super(itemView); //todo: super(binding.getRoot())?
+//            super(itemView);
             super(binding.getRoot());
 
             this.binding = binding;
