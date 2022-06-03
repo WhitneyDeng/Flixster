@@ -6,9 +6,9 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1745" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1745" />
-        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.3054054054054054" />
-        <entry key="app/src/main/res/layout-land/item_movie.xml" value="0.3054054054054054" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.42505187988281257" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.15699658703071673" />
+        <entry key="app/src/main/res/layout-land/item_movie.xml" value="0.19503479003906252" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4178921568627451" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.22528076171875003" />
       </map>
     </option>
