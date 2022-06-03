@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-[App Demo Link](screenshots/submission1.gif)
+[App Demo Link](screenshots/submission2.gif)
 
 GIF created with [Kap](https://getkap.co/).
 
