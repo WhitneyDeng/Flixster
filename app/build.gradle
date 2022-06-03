@@ -48,4 +48,9 @@ dependencies {
     //FOR: Parceler: ?to click into new activity?
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+
+    //FOR: transformation
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 }

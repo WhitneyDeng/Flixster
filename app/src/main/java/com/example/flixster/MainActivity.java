@@ -55,12 +55,13 @@ public class MainActivity extends AppCompatActivity
                 JSONObject jsonObject = json.jsonObject;
                 try
                 {
-                    JSONArray results = jsonObject.getJSONArray("results");
+                    JSONArray results = jsonObject.getJSONArray("results"); //might fail => try/catch
                     Log.i(TAG, "Results: " + results.toString());
                     movies.addAll(Movie.fromJsonArray(results));    //modify movies
                     movieAdapter.notifyDataSetChanged();            //let adapter know to rerender rv
                     Log.i(TAG, "Movies: " + movies.size());
-                } catch (JSONException e)
+                }
+                catch (JSONException e)
                 {
                     Log.e(TAG, "Hit json exception", e);
                 }
