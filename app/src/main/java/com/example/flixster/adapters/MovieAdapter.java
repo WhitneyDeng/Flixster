@@ -43,10 +43,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
     {
         Log.d("MovieAdapter", "onCreateViewholder");
         //todo: inflate here?
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        // src: https://www.codegrepper.com/code-examples/java/view+binding+in+recyclerview+adapter+android+java
+        ItemMovieBinding movieViewBinding = ItemMovieBinding.inflate(
+                LayoutInflater.from(context), parent, false);
         //todo: view vs data binding
 //        View movieView = ItemMovieBinding.inflate(LayoutInflater.from(context), parent, false);
-        return new ViewHolder(movieView);
+//        return new ViewHolder(movieView);
+        return new ViewHolder(movieViewBinding);
     }
 
     /* populate data into item through holder
@@ -75,30 +78,34 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         ImageView ivPoster;
         ImageView ivBackdrop;
 
-//        ItemMovieBinding binding; //todo: declare here or in Adapter?
+        ItemMovieBinding binding; //todo: declare here or in Adapter?
 
         int orientation;
 
-        public ViewHolder(@NonNull View itemView)
+//        public ViewHolder(@NonNull View itemView)
+        public ViewHolder(@NonNull ItemMovieBinding binding)
         {
             //TODO: nice to have: ivPrimaryImage instead of ivPoster & backdrop (https://hackmd.io/@qoEusk2FR0SJB-Q7Rsv-CQ/ryS2Jppz-?type=view)
-            super(itemView); //todo: super(binding.getRoot())?
-            tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview = itemView.findViewById(R.id.tvOverview);
-//            tvTitle = binding.tvTitle;
-//            tvOverview = binding.tvOverview;
+//            super(itemView); //todo: super(binding.getRoot())?
+            super(binding.getRoot());
+
+            this.binding = binding;
+//            tvTitle = itemView.findViewById(R.id.tvTitle);
+//            tvOverview = itemView.findViewById(R.id.tvOverview);
+            tvTitle = binding.tvTitle;
+            tvOverview = binding.tvOverview;
 
             orientation = context.getResources().getConfiguration().orientation;
 
             if (orientation == Configuration.ORIENTATION_PORTRAIT)
             {
-                ivPoster = itemView.findViewById(R.id.ivPoster);
-//                ivPoster = binding.ivPoster;
+//                ivPoster = itemView.findViewById(R.id.ivPoster);
+                ivPoster = binding.ivPoster;
             }
             else if (orientation == Configuration.ORIENTATION_LANDSCAPE)
             {
-                ivBackdrop = itemView.findViewById(R.id.ivBackdrop);
-//                ivBackdrop = binding.ivBackdrop;
+//                ivBackdrop = itemView.findViewById(R.id.ivBackdrop);
+                ivBackdrop = binding.ivBackdrop;
             }
 
             // add this as the itemView's OnClickListener
