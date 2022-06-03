@@ -18,6 +18,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
+import com.example.flixster.databinding.ItemMovieBinding;
 import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
@@ -41,7 +42,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         Log.d("MovieAdapter", "onCreateViewholder");
+        //todo: inflate here?
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        //todo: view vs data binding
+//        View movieView = ItemMovieBinding.inflate(LayoutInflater.from(context), parent, false);
         return new ViewHolder(movieView);
     }
 
@@ -70,24 +74,31 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         TextView tvOverview;
         ImageView ivPoster;
         ImageView ivBackdrop;
+
+//        ItemMovieBinding binding; //todo: declare here or in Adapter?
+
         int orientation;
 
         public ViewHolder(@NonNull View itemView)
         {
             //TODO: nice to have: ivPrimaryImage instead of ivPoster & backdrop (https://hackmd.io/@qoEusk2FR0SJB-Q7Rsv-CQ/ryS2Jppz-?type=view)
-            super(itemView);
+            super(itemView); //todo: super(binding.getRoot())?
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
+//            tvTitle = binding.tvTitle;
+//            tvOverview = binding.tvOverview;
 
             orientation = context.getResources().getConfiguration().orientation;
 
             if (orientation == Configuration.ORIENTATION_PORTRAIT)
             {
                 ivPoster = itemView.findViewById(R.id.ivPoster);
+//                ivPoster = binding.ivPoster;
             }
             else if (orientation == Configuration.ORIENTATION_LANDSCAPE)
             {
                 ivBackdrop = itemView.findViewById(R.id.ivBackdrop);
+//                ivBackdrop = binding.ivBackdrop;
             }
 
             // add this as the itemView's OnClickListener
