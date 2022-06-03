@@ -7,12 +7,19 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.parceler.Parcel;
+
+@Parcel // annotation indicates class is Parcelable
 public class Movie
 {
     String posterPath;
     String backdropPath;
     String title;
     String overview;
+    Double voteAverage;
+
+    // no-arg, empty constructor required for Parceler
+    public Movie()  {}
 
     public Movie(JSONObject jsonObject) throws JSONException
     {
@@ -20,6 +27,7 @@ public class Movie
         backdropPath = jsonObject.getString("backdrop_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
+        voteAverage = jsonObject.getDouble("vote_average");
     }
 
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException
@@ -32,14 +40,14 @@ public class Movie
         return movies;
     }
 
-    public String getBackdropPath()
-    {
-        return String.format("https://image.tmdb.org/t/p/w500/%s", backdropPath);
-    }
-
     public String getPosterPath()
     {
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
+    }
+
+    public String getBackdropPath()
+    {
+        return String.format("https://image.tmdb.org/t/p/w500/%s", backdropPath);
     }
 
     public String getTitle()
@@ -50,5 +58,10 @@ public class Movie
     public String getOverview()
     {
         return overview;
+    }
+
+    public Double getVoteAverage()
+    {
+        return voteAverage;
     }
 }
